@@ -58,6 +58,8 @@ class Governance(unittest.TestCase):
         self.assertIn("REFERENCE TRUTH != PRODUCT TRUTH != IMPLEMENTATION STATE != VERIFICATION TRUTH != RELEASE APPROVAL", orch)
         product = read("skills/corereplica-product/SKILL.md")
         self.assertIn("No `done`, `clone`, `verified`", product)
+        self.assertIn("scope_status", product)
+        self.assertIn("PROVISIONAL_INTERPRETATION", product)
 
     def test_reference_template_has_no_priority_or_completion(self):
         path = os.path.join(ROOT, "skills", "corereplica-reference", "assets", "feature-observations.csv")
@@ -103,6 +105,8 @@ class Governance(unittest.TestCase):
         expected = [
             "skills/corereplica-build/references/BACKEND_AND_INTEGRATIONS.md",
             "skills/corereplica-verify/references/FLOW_AND_PARITY_VERIFICATION.md",
+            "skills/corereplica-verify/references/SIDE_EFFECT_SAFE_VERIFICATION.md",
+            "skills/corereplica-orchestration/references/WORKSPACE_AND_STANDALONE.md",
             "skills/corereplica-market/references/REVIEW_RESEARCH.md",
             "skills/corereplica-market/references/BRAND_AND_POSITIONING.md",
             "skills/corereplica-market/references/LAUNCH_AND_LISTING.md",
@@ -117,10 +121,39 @@ class Governance(unittest.TestCase):
         self.assertIn("PRODUCTION_READINESS.md", release)
         self.assertNotIn("fix s1 and s2 first", read(expected[1]).lower())
 
-    def test_private_plugin_stage_is_complete_before_field_eval(self):
+    def test_field_eval_is_materialized_and_next_eval_ready(self):
         plan = read("docs/PROJECT_PLAN.yaml")
-        self.assertRegex(plan, r"P5_PRIVATE_PLUGIN[\s\S]*?status: complete")
-        self.assertRegex(plan, r"P6_FIELD_EVAL[\s\S]*?status: ready")
+        self.assertRegex(plan, r"P6_FIELD_EVAL_ANOTE[\s\S]*?status: complete")
+        self.assertRegex(plan, r"P7_FIELD_EVAL_HARDENING[\s\S]*?status: complete")
+        self.assertRegex(plan, r"P8_NEXT_FIELD_EVAL[\s\S]*?status: ready")
+
+    def test_workspace_shape_and_standalone_degradation(self):
+        orch = read("skills/corereplica-orchestration/SKILL.md")
+        ref = read("skills/corereplica-orchestration/references/WORKSPACE_AND_STANDALONE.md")
+        self.assertIn("binary/distribution package", orch)
+        self.assertIn("Core-First is a preferred companion, not a hard runtime dependency", orch)
+        self.assertIn("Do not require Git", ref)
+        self.assertIn("outside the payload", ref)
+        self.assertIn("Standalone mode", ref)
+        self.assertIn("unresolved", ref.lower())
+
+    def test_side_effect_safe_nonvisual_verification(self):
+        verify = read("skills/corereplica-verify/SKILL.md")
+        side = read("skills/corereplica-verify/references/SIDE_EFFECT_SAFE_VERIFICATION.md")
+        self.assertIn("filesystem", verify)
+        self.assertIn("registry", verify)
+        self.assertIn("SIDE_EFFECT_SAFE_VERIFICATION.md", verify)
+        self.assertIn("baseline", side.lower())
+        self.assertIn("cleanup", side.lower())
+        self.assertIn("oracle", side.lower())
+        self.assertIn("INCONCLUSIVE", side)
+
+    def test_verification_role_matrix_is_explicit(self):
+        routing = read("skills/corereplica-orchestration/references/ROUTING_AND_CONTEXT.md")
+        self.assertIn("CoreReplica Verify", routing)
+        self.assertIn("Observable Product Verification", routing)
+        self.assertIn("Core-First Verifier", routing)
+        self.assertIn("Independent Review", routing)
 
 
 if __name__ == "__main__":

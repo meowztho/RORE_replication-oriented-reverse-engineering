@@ -3,7 +3,16 @@
   "requirements": {
     "REQ-001": {
       "status": "INCONCLUSIVE",
-      "evidence": [],
+      "evidence": [
+        {
+          "kind": "runtime",
+          "boundary": "replace-with-real-boundary",
+          "ref": null,
+          "notes": "",
+          "side_effects": "not-assessed",
+          "liveness": "not-applicable"
+        }
+      ],
       "notes": "Replace with current verifier-owned evidence."
     }
   }

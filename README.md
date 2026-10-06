@@ -72,3 +72,7 @@ The gate validates plugin structure/governance invariants and runs the tool regr
 ## Provenance and license
 
 See `SOURCE_PROVENANCE.md` and `THIRD_PARTY_NOTICES.md`. Upstream portions remain under the MIT License.
+
+## v0.2 field-evaluation hardening
+
+CoreReplica is workspace-aware rather than Git-only, keeps control metadata outside shippable payloads when needed, supports a bounded standalone ownership fallback when Core-First is unavailable, treats process/filesystem/registry/database/network boundaries as first-class verification targets, and requires side-effect-safe preflight for real runs that can leave persistent state. Deferred scope is separate from priority, and autonomous runs may preserve consequential assumptions as `PROVISIONAL_INTERPRETATION` pending user confirmation.

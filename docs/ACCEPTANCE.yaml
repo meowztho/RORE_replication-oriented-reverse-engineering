@@ -30,3 +30,21 @@ criteria:
   - id: A010
     requirement: Useful upstream domain procedures remain available JIT without restoring the mandatory upstream pipeline or overlapping completion authority.
     evidence: tests/test_governance.py
+  - id: A011
+    requirement: CoreReplica supports non-Git/binary/distribution workspaces without inventing repository state or contaminating the shippable payload.
+    evidence: tests/test_governance.py
+  - id: A012
+    requirement: CoreReplica has a bounded standalone ownership-safety fallback when Core-First is unavailable, while preferring the companion plugin when present.
+    evidence: tests/test_governance.py
+  - id: A013
+    requirement: Real-boundary verification with persistent side effects requires isolation/baseline/cleanup or an explicit INCONCLUSIVE/approval outcome.
+    evidence: tests/test_governance.py
+  - id: A014
+    requirement: Deferred/out-of-scope Product Truth is distinct from priority and is excluded from parity scoring without schema errors.
+    evidence: tests/test_evidence_parity.py
+  - id: A015
+    requirement: Autonomous runs can preserve consequential unresolved user intent as PROVISIONAL_INTERPRETATION without fabricating USER authority.
+    evidence: tests/test_governance.py
+  - id: A016
+    requirement: Verification roles remain distinct: CoreReplica parity, OPV real-boundary procedure, Core-First architecture conformance, Independent Review risk review.
+    evidence: tests/test_governance.py

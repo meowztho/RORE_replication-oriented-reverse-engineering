@@ -36,6 +36,8 @@ REQUIRED_DOCS = [
     "docs/ACCEPTANCE.yaml",
     "docs/PROJECT_INDEX.yaml",
     "docs/CONTEXT_HANDOFF.md",
+    "skills/corereplica-orchestration/references/WORKSPACE_AND_STANDALONE.md",
+    "skills/corereplica-verify/references/SIDE_EFFECT_SAFE_VERIFICATION.md",
     "SOURCE_PROVENANCE.md",
     "LICENSE",
     "LICENSE-UPSTREAM",
@@ -91,6 +93,9 @@ def check_orchestration_text(text):
         errors.append("Orchestration lost JIT/progressive disclosure rule")
     if "recon -> architect -> design -> build -> backend -> test -> diff" in text.lower():
         errors.append("Mandatory upstream pipeline reintroduced")
+    for phrase in ("binary/distribution package", "preferred companion, not a hard runtime dependency"):
+        if phrase not in text:
+            errors.append("Orchestration missing workspace/standalone invariant: %s" % phrase)
     return errors
 
 
@@ -170,6 +175,14 @@ def structural_checks():
     errors.extend(check_orchestration_text(read("skills/corereplica-orchestration/SKILL.md")))
     errors.extend(check_verifier_text(read("skills/corereplica-verify/SKILL.md")))
     errors.extend(check_release_text(read("skills/corereplica-release/SKILL.md")))
+    side = read("skills/corereplica-verify/references/SIDE_EFFECT_SAFE_VERIFICATION.md").lower()
+    for phrase in ("baseline", "cleanup", "oracle", "inconclusive"):
+        if phrase not in side:
+            error(errors, "Side-effect verification contract missing: %s" % phrase)
+    product = read("skills/corereplica-product/SKILL.md")
+    for phrase in ("scope_status", "PROVISIONAL_INTERPRETATION"):
+        if phrase not in product:
+            error(errors, "Product contract missing: %s" % phrase)
 
     prov = read("SOURCE_PROVENANCE.md")
     if "77c9436fb3d18c3d58169efb8caf4fe906b0dc51" not in prov:

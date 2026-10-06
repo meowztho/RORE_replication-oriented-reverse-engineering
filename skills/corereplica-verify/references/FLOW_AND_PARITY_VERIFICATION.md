@@ -1,5 +1,7 @@
 # Flow and Parity Verification
 
+This procedure is boundary-neutral. A "flow" may be UI interaction, a process lifecycle, filesystem/registry transition, database state change, API/external effect, or another observable contract.
+
 Use when target requirements contain multi-step user flows, stateful behavior, cross-user isolation, or intentional reference parity.
 
 ## Build the plan from target requirements
@@ -25,7 +27,7 @@ Do not turn this checklist into mandatory tests for irrelevant concerns. Select 
 
 Use the project's existing test framework when possible. For browser E2E, stable role/label/test-id selectors are preferable to presentation-only selectors. Failures in console/network can be useful supporting evidence, but no log substitutes for the expected user-visible state when that is the claim.
 
-For flows that cannot be automated economically, use a bounded manual/agent-driven pass and record evidence explicitly instead of pretending coverage.
+For flows that cannot be automated economically, use a bounded manual/agent-driven pass and record evidence explicitly instead of pretending coverage. For host-mutating runs, apply `SIDE_EFFECT_SAFE_VERIFICATION.md` first.
 
 ## Visual/layout comparison
 

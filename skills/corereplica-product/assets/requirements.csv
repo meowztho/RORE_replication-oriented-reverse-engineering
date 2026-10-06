@@ -1,2 +1,3 @@
-id,area,requirement,priority,source_decision,reference_ids,acceptance,notes
-REQ-001,example,User can complete the target outcome,must,adopt,REF-001,Observable target outcome succeeds,Replace with project requirement
+id,area,requirement,scope_status,priority,source_decision,reference_ids,acceptance,decision_status,notes
+REQ-001,example,User can complete the target outcome,active,must,adopt,REF-001,Observable target outcome succeeds,CONFIRMED,Replace with project requirement
+REQ-002,example,Deferred example,deferred,,adapt,REF-002,Not in current acceptance scope,CONFIRMED,Deferred scope is not a priority

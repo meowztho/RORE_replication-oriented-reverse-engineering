@@ -20,7 +20,15 @@ stages:
     prerequisites: [P4_REGRESSION_AND_GOVERNANCE_EVALS]
     exact_gate: account save is authorized by the user's request; public publication is not authorized
     status: complete
-  - id: P6_FIELD_EVAL
-    outcome: CoreReplica is exercised on a real reference-driven project and empirical failures feed bounded corrections.
+  - id: P6_FIELD_EVAL_ANOTE
+    outcome: CoreReplica is exercised on ANotePortable; empirical failures and companion-plugin interactions are recorded.
     prerequisites: [P5_PRIVATE_PLUGIN]
+    status: complete
+  - id: P7_FIELD_EVAL_HARDENING
+    outcome: Empirical failures are corrected without adding new overlapping owners.
+    prerequisites: [P6_FIELD_EVAL_ANOTE]
+    status: complete
+  - id: P8_NEXT_FIELD_EVAL
+    outcome: Run a materially different reference project to challenge the v0.2 corrections and expose remaining domain assumptions.
+    prerequisites: [P7_FIELD_EVAL_HARDENING]
     status: ready

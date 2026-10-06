@@ -26,7 +26,7 @@ corereplica/product/REQUIREMENTS.csv
 `REQUIREMENTS.csv` schema:
 
 ```text
-id,area,requirement,priority,source_decision,reference_ids,acceptance,notes
+id,area,requirement,scope_status,priority,source_decision,reference_ids,acceptance,decision_status,notes
 ```
 
 No `done`, `clone`, `verified`, or builder-owned completion field is allowed.
@@ -41,9 +41,9 @@ No `done`, `clone`, `verified`, or builder-owned completion field is allowed.
    - `inspiration-only` — useful context, not a requirement.
 3. Add target requirements that do not exist in the reference when they are part of the user's distinct value proposition.
 4. Preserve explicit exclusions/deferred scope. Do not let a reference application's breadth silently expand the project.
-5. Classify priorities only after target intent exists. `must | should | could` are product priorities, not evidence states.
+5. Separate scope from priority. `scope_status` is `active | deferred | out_of_scope`; `priority` is `must | should | could` only for active scope. Do not encode `deferred` as a priority.
 6. Give each requirement a stable ID and outcome-oriented acceptance statement. Do not prescribe a class/file/provider unless that is itself a confirmed constraint.
-7. If a decision changes user-visible behavior, scope, cost, trust, business model, or a consequential product tradeoff and the user has not settled it, ask. Reversible implementation details remain technical decisions.
+7. If a decision changes user-visible behavior, scope, cost, trust, business model, or a consequential product tradeoff and the user has not settled it, ask when an interactive user is available. In an explicitly autonomous/evaluation context, do not fabricate USER authority: record `decision_status=PROVISIONAL_INTERPRETATION`, the chosen interpretation, rationale, alternatives, consequences and confirmation needed. Proceed only with reversible work that remains valid or cheaply correctable; keep irreversible/consequential transitions blocked. Reversible implementation details remain technical decisions.
 8. When requirements imply architecture/ownership/reuse decisions, route to Core-First before implementation; do not create a parallel `architecture.md` here.
 
 ## Distinct-product challenge
@@ -63,4 +63,4 @@ Useful dimensions:
 
 ## Handoff
 
-Return explicit adopted/adapted/rejected traits, target-only requirements, deferred/out-of-scope items and unresolved user decisions. Implementation uses these authorities; it may not rewrite them to match what was easiest to build.
+Return explicit adopted/adapted/rejected traits, target-only requirements, deferred/out-of-scope items, unresolved user decisions, and any `PROVISIONAL_INTERPRETATION` pledges that still require confirmation. Implementation uses these authorities; it may not rewrite them to match what was easiest to build.

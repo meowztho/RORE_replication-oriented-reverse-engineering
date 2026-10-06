@@ -116,5 +116,34 @@ class EvidenceParity(unittest.TestCase):
             self.assertEqual(parity.main([bad, self.ev]), 2)
 
 
+    def test_deferred_scope_is_excluded_without_priority_error(self):
+        req = os.path.join(self.tmp.name, "scoped.csv")
+        ev_path = os.path.join(self.tmp.name, "scoped-evidence.json")
+        write_csv(req, header=["id", "area", "requirement", "scope_status", "priority"], rows=[
+            ["REQ-1", "core", "active", "active", "must"],
+            ["REQ-2", "future", "later", "deferred", ""],
+        ])
+        write_json(ev_path, {"revision": "r1", "requirements": {"REQ-1": {"status": "VERIFIED"}}})
+        requirements = parity.load_requirements(req)
+        _, evidence = parity.load_evidence(ev_path)
+        result = parity.score(requirements, evidence)
+        self.assertEqual(result["verification_coverage"], 100.0)
+        self.assertEqual(result["counted"], 1)
+        self.assertEqual([x["id"] for x in result["skipped"]], ["REQ-2"])
+        self.assertFalse(any("priority" in p.lower() for p in result["problems"]))
+
+    def test_invalid_scope_status_is_reported_and_treated_active(self):
+        req = os.path.join(self.tmp.name, "invalid-scope.csv")
+        ev_path = os.path.join(self.tmp.name, "invalid-scope-evidence.json")
+        write_csv(req, header=["id", "area", "requirement", "scope_status", "priority"], rows=[
+            ["REQ-1", "core", "x", "laterish", "must"],
+        ])
+        write_json(ev_path, {"revision": "r1", "requirements": {"REQ-1": {"status": "VERIFIED"}}})
+        requirements = parity.load_requirements(req)
+        _, evidence = parity.load_evidence(ev_path)
+        result = parity.score(requirements, evidence)
+        self.assertEqual(result["verification_coverage"], 100.0)
+        self.assertTrue(any("scope_status" in p for p in result["problems"]))
+
 if __name__ == "__main__":
     unittest.main()

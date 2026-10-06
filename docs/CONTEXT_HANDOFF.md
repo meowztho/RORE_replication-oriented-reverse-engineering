@@ -1,52 +1,37 @@
-# CoreReplica Context Handoff — v0.1.1
+# CoreReplica Context Handoff — v0.2.0
 
 ## Current state
 
-CoreReplica is a new skills-only Agent Plugin derived from the MIT `replica-skill` source at commit `77c9436fb3d18c3d58169efb8caf4fe906b0dc51`.
+CoreReplica is a skills-only Agent Plugin derived from the MIT `replica-skill` source at commit `77c9436fb3d18c3d58169efb8caf4fe906b0dc51`.
 
-The rewrite was initiated after a Core-First review found five structural failure classes in the upstream pack:
+v0.1 corrected the upstream structural failures: Reference Truth/Product Truth separation, builder status vs Verification Truth, removal of a parallel architecture owner, read-only verification, and exact release gates. v0.1.1 restored useful backend/verification/market/release procedure depth behind JIT owners.
 
-1. reference observations could become product truth without an explicit target-product decision layer;
-2. a single feature matrix mixed reference scope, priorities, implementation progress and parity/completion;
-3. the architecture skill could create a parallel architecture authority instead of first resolving current project owners;
-4. the test skill both verified and fixed its own findings;
-5. parity and deploy each carried overlapping completion/release semantics inside a mandatory sequential pipeline.
+## First empirical field evaluation
 
-## Canonical correction
+The first staged evaluation replicated the ANotePortable package. CoreReplica alone established the reference/product/evidence model and its verification discipline exposed three real launcher bugs despite an initially successful process exit. Adding Core-First found a missing crash-recovery responsibility and a fresh verifier found a Unicode path defect. Adding Agent Project Compiler produced a durable cross-session package.
 
-CoreReplica v0.1 uses:
+The evaluation also exposed CoreReplica-specific gaps:
 
-```text
-Reference Truth
-→ explicit product decision
-→ Product Truth
-→ Core-First owner/change resolution when material
-→ implementation progress
-→ independent Verification Truth
-→ release readiness
-→ exact approval gate
-→ consequential transition
-```
+1. source-repository assumptions did not fit a binary/distribution package and control metadata risked contaminating the payload;
+2. standalone operation was underspecified when Core-First was unavailable;
+3. real-boundary verification lacked side-effect isolation/baseline/cleanup guidance;
+4. non-visual boundaries such as process/registry/filesystem were under-emphasized;
+5. deferred scope and priority were conflated by the sample schema/tool;
+6. autonomous evaluation lacked a safe provisional user-decision state;
+7. CoreReplica Verify, OPV and Core-First Verifier needed an explicit role matrix.
 
-The skills are JIT-routed rather than mandatory-sequential.
+## v0.2.0 corrections
 
-## Protected decisions
+- workspace-shape classification replaces repository-as-default semantics;
+- control-plane artifacts stay outside shippable/runnable payloads when contamination is possible;
+- revision identity may be Git SHA, package/content hash, build ID or evidence-run identity;
+- Core-First remains preferred but CoreReplica now defines a deliberately small standalone owner-safety fallback;
+- verification gains side-effect-safe preflight and oracle-liveness guidance;
+- process/filesystem/registry/database/network/external-service boundaries are first-class evidence;
+- requirements gain `scope_status=active|deferred|out_of_scope` separate from active priority;
+- autonomous runs may use `PROVISIONAL_INTERPRETATION` without fabricating USER authority;
+- verification lane responsibilities are explicitly non-overlapping.
 
-- Keep Core-First Governance as an external procedural owner when available; do not fork its full architecture method into CoreReplica.
-- Keep Agent Project Compiler truth/authority/verification separation in the project model.
-- Preserve the upstream MIT license and provenance for adapted scripts/templates.
-- Builder status is non-authoritative for acceptance.
-- Verification is read-only by default and records a finding before any correction path begins.
-- Market/brand provides brand profile inputs; Design remains the semantic design-system owner.
-- Release preparation may continue until the exact gated transition; broad requests do not imply approval.
-- Current external platform/legal/pricing facts are JIT research concerns, not timeless plugin truth.
+## Next work
 
-## v0.1.1 pre-test hardening
-
-A critical comparison against the original Replica v1.0 pack found that the architectural rewrite was sound but several useful domain procedures had been compressed too aggressively. v0.1.1 restores that detail only behind existing JIT owners: backend/integration checks, flow/edge-case verification, market/brand/launch procedures, and production-readiness checks. The eight-skill ownership model and non-linear routing remain unchanged.
-
-The private-plugin packaging stage is complete. Field evaluation is now ready.
-
-## Next work after v0.1.1 package
-
-Run real field evaluations against reference-driven projects. Admit additional governance text only for observed failures where a minimal provider-neutral intervention measurably improves behavior.
+Run a second field evaluation on a materially different target (for example a web/SaaS app or a multi-surface desktop app). Do not add further framework machinery unless the next failure demonstrates a reusable gap.

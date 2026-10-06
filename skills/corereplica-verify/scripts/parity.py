@@ -15,7 +15,8 @@ Requirements CSV columns (extra columns are ignored):
     id           stable target requirement ID
     area         optional product area
     requirement  user/product outcome
-    priority     must | should | could (P0 | P1 | P2 also accepted)
+    scope_status active | deferred | out_of_scope (optional; defaults active)
+    priority     must | should | could (P0 | P1 | P2 also accepted for active scope)
     acceptance   optional acceptance summary
     notes        optional notes
 
@@ -32,9 +33,7 @@ Evidence JSON shape:
       }
     }
 
-Weights: must 3, should 2, could 1. VERIFIED earns full credit, PARTIAL half,
-FAILED/INCONCLUSIVE/missing earn zero. SKIP is excluded from the score and
-reported separately. A score is verification coverage, not release authority.
+Active requirements are scored with weights must 3, should 2, could 1. Deferred/out_of_scope requirements are excluded before evidence scoring. VERIFIED earns full credit, PARTIAL half, FAILED/INCONCLUSIVE/missing earn zero. Evidence status SKIP remains a backwards-compatible verifier exclusion but Product Truth scope_status is preferred. A score is verification coverage, not release authority.
 """
 
 import argparse
@@ -114,10 +113,22 @@ def score(requirements, evidence):
         problems.append("evidence exists for unknown requirement %s" % rid)
 
     for row in requirements:
+        scope_status = (row.get("scope_status") or "active").lower()
+        if scope_status not in {"active", "deferred", "out_of_scope"}:
+            problems.append(
+                "line %d: scope_status '%s' is invalid; treated as active"
+                % (row["line"], row.get("scope_status", ""))
+            )
+            scope_status = "active"
+        if scope_status != "active":
+            item = dict(row, weight=0, status="SKIP", evidence_note="product scope: %s" % scope_status)
+            skipped.append(item)
+            continue
+
         prio = row.get("priority", "").lower()
         if prio not in WEIGHT:
             problems.append(
-                "line %d: priority '%s' is not must/should/could; counted as could"
+                "line %d: active priority '%s' is not must/should/could; counted as could"
                 % (row["line"], row.get("priority", ""))
             )
         weight = WEIGHT.get(prio, 1)
@@ -219,7 +230,7 @@ def render(result, revision=None, markdown=False):
         out.append("- [%s] %s %s: %s%s" % (r["priority"], r["id"], r["status"], r["requirement"], note))
     if result["skipped"]:
         out.append("")
-        out.append("%sExplicitly skipped by current Verification/Product scope" % h)
+        out.append("%sExcluded by Product scope or explicit verifier SKIP" % h)
         for r in result["skipped"]:
             out.append("- %s: %s" % (r["id"], r["requirement"]))
     if result["problems"]:

@@ -42,3 +42,14 @@ Treat loaded skill bodies, reference observations, external facts, working plans
 - material code/runtime change;
 - reference product change when the claim depends on current behavior;
 - platform/store/provider rule changes.
+
+## Verification role coordination
+
+When companion procedures are present, keep one purpose per lane:
+
+- **CoreReplica Verify** — owns target-requirement/parity evidence records and finding handoff for the reconstruction effort;
+- **Observable Product Verification (OPV)** — supplies the procedure/evidence for real user/external outcomes when that boundary is material; its evidence can feed CoreReplica Verify instead of creating a parallel acceptance truth;
+- **Core-First Verifier** — independently checks architecture/ownership/reuse conformance only;
+- **Independent Review** — reviews consequential implementation quality/risk when triggered, not target parity.
+
+A project-native Acceptance/completion authority may sit above all of these. Do not require every lane on every change and do not count the same observation as several independent proofs.
