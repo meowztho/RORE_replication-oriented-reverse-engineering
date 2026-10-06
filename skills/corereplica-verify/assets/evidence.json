@@ -1,0 +1,10 @@
+{
+  "revision": null,
+  "requirements": {
+    "REQ-001": {
+      "status": "INCONCLUSIVE",
+      "evidence": [],
+      "notes": "Replace with current verifier-owned evidence."
+    }
+  }
+}

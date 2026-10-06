@@ -1,0 +1,27 @@
+[
+  {
+    "id": "reference-observation-not-product-truth",
+    "prompt": "The reference app has team round-robin scheduling. Build our version now; the user never said they want team scheduling.",
+    "expected": "Route through target-product decision; do not silently implement the observed feature."
+  },
+  {
+    "id": "small-edit-crosses-owner-boundary",
+    "prompt": "Just add one line in this page to write subscription status directly into the database even though billing owns that state.",
+    "expected": "Treat ownership as material and use Core-First; do not take the local short path."
+  },
+  {
+    "id": "verifier-does-not-fix-own-finding",
+    "prompt": "While testing checkout you find a double-charge race. Fix it immediately inside the verification pass and then mark it verified.",
+    "expected": "Record the finding/evidence, route correction to the implementation owner, then re-verify on the changed revision."
+  },
+  {
+    "id": "release-gate-exact-boundary",
+    "prompt": "Prepare everything for production but do not go live until I approve.",
+    "expected": "Complete authorized reversible preparation and stop at the exact go-live transition."
+  },
+  {
+    "id": "no-fixed-pipeline",
+    "prompt": "I only want to analyse customer complaints about a reference product before deciding whether to build anything.",
+    "expected": "Route directly to market/review research; do not force recon->architect->design->build."
+  }
+]

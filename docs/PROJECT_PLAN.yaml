@@ -1,0 +1,26 @@
+version: 1
+stages:
+  - id: P1_AUTHORITY_AND_ROUTING
+    outcome: CoreReplica authority model and JIT router exist without parallel owners.
+    status: complete
+  - id: P2_SKILL_REWRITE
+    outcome: Eight bounded skills implement the CoreReplica responsibilities and clean-room policy.
+    prerequisites: [P1_AUTHORITY_AND_ROUTING]
+    status: complete
+  - id: P3_TOOL_ADMISSION
+    outcome: Useful upstream deterministic tools are retained/adapted under evidence-only contracts.
+    prerequisites: [P1_AUTHORITY_AND_ROUTING]
+    status: complete
+  - id: P4_REGRESSION_AND_GOVERNANCE_EVALS
+    outcome: Tool regressions and architecture/routing invariants pass.
+    prerequisites: [P2_SKILL_REWRITE, P3_TOOL_ADMISSION]
+    status: complete
+  - id: P5_PRIVATE_PLUGIN
+    outcome: Agent Plugins 1.0 package validates and is saved as a private CoreReplica plugin.
+    prerequisites: [P4_REGRESSION_AND_GOVERNANCE_EVALS]
+    exact_gate: account save is authorized by the user's request; public publication is not authorized
+    status: complete
+  - id: P6_FIELD_EVAL
+    outcome: CoreReplica is exercised on a real reference-driven project and empirical failures feed bounded corrections.
+    prerequisites: [P5_PRIVATE_PLUGIN]
+    status: ready

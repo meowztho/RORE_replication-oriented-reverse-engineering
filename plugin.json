@@ -1,0 +1,28 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "corereplica",
+  "version": "0.1.1",
+  "description": "Core-First clean-room reference reconstruction with JIT routing, separated product truth, evidence-based verification, and guarded release.",
+  "author": {
+    "name": "CoreReplica contributors"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "CoreReplica",
+        "shortDescription": "Core-first app reconstruction",
+        "longDescription": "Study reference products clean-room style, define an independent target product, implement through canonical owners, verify real behavior, and release through explicit gates.",
+        "developerName": "CoreReplica contributors",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Interactive"
+        ],
+        "defaultPrompt": [
+          "Study this reference product and define a clean-room CoreReplica plan.",
+          "Continue this CoreReplica project using the smallest relevant JIT procedure.",
+          "Verify this CoreReplica implementation without letting the verifier fix its own findings."
+        ]
+      }
+    }
+  }
+}

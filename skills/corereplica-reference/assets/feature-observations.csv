@@ -1,0 +1,2 @@
+id,area,observation,evidence_ids,confidence,notes
+REF-001,example,Reference product exposes an observed capability,SRC-001,medium,Replace with sourced observation

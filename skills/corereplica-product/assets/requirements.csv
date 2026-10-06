@@ -1,0 +1,2 @@
+id,area,requirement,priority,source_decision,reference_ids,acceptance,notes
+REQ-001,example,User can complete the target outcome,must,adopt,REF-001,Observable target outcome succeeds,Replace with project requirement

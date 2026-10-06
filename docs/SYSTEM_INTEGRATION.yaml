@@ -1,0 +1,50 @@
+version: 1
+flows:
+  - id: FLOW_REFERENCE_TO_PRODUCT
+    trace:
+      - CR_REFERENCE:source evidence
+      - CR_REFERENCE:reference observations
+      - CR_PRODUCT:adopt/adapt/reject/inspiration decision
+      - CR_PRODUCT:target requirement
+    forbidden:
+      - reference observation directly becoming implementation scope without product decision
+  - id: FLOW_PRODUCT_TO_IMPLEMENTATION
+    trace:
+      - CR_PRODUCT:target requirement
+      - external:Core-First owner/change resolution when material
+      - CR_BUILD:canonical implementation path
+      - CR_BUILD:implementation progress
+    forbidden:
+      - CR_BUILD modifying product scope to make implementation easier
+      - clone-specific parallel owner bypassing canonical repository owner
+  - id: FLOW_IMPLEMENTATION_TO_VERIFICATION
+    trace:
+      - CR_BUILD:current implementation revision
+      - CR_VERIFY:test/observable procedure
+      - CR_VERIFY:evidence record
+      - CR_VERIFY:requirement verification status
+    forbidden:
+      - implementation status counted as verification evidence
+      - verifier fixing source before independently recording the finding
+  - id: FLOW_FAILURE_TO_CORRECTION
+    trace:
+      - CR_VERIFY:observable failure
+      - existing project routing/runtime trace
+      - external:Core-First reverse trace when ownership is material
+      - CR_BUILD:canonical owner implementation anchor
+      - CR_BUILD:correction
+      - CR_VERIFY:fresh re-exercise
+  - id: FLOW_BRAND_TO_DESIGN
+    trace:
+      - CR_MARKET:brand profile
+      - CR_DESIGN:semantic design contract
+      - CR_BUILD:effective presentation
+    forbidden:
+      - CR_MARKET directly owning design-system component/state rules
+  - id: FLOW_VERIFICATION_TO_RELEASE
+    trace:
+      - CR_VERIFY:current acceptance/parity evidence
+      - CR_RELEASE:release preflight
+      - CR_RELEASE:reversible preparation
+      - user_or_project:explicit approval
+      - CR_RELEASE:gated consequential transition
