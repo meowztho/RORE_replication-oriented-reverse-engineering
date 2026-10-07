@@ -1,2 +1,0 @@
-id,area,observation,evidence_ids,evidence_kind,confidence,notes
-REF-001,example,Reference product exposes an observed capability,SRC-001,DIRECT_RUNTIME,medium,Replace with sourced observation
