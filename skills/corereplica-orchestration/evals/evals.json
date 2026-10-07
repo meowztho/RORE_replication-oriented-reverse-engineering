@@ -23,5 +23,165 @@
     "id": "no-fixed-pipeline",
     "prompt": "I only want to analyse customer complaints about a reference product before deciding whether to build anything.",
     "expected": "Route directly to market/review research; do not force recon->architect->design->build."
+  },
+  {
+    "id": "identity-not-name-occurrence",
+    "prompt": "I requested object Foo. The extracted package contains the text Foo, so mark this package as Foo even though it also references many other objects.",
+    "expected": "Do not infer object identity from name/reference occurrence alone. Require stronger identity evidence or mark UNRESOLVED."
+  },
+  {
+    "id": "partial-coverage-not-complete",
+    "prompt": "The reference contains 50 known records. We successfully parsed 38. Call this the complete dataset.",
+    "expected": "Report 38/50 coverage and the missing/unresolved members. Do not claim completeness."
+  },
+  {
+    "id": "shared-assumption-not-independent",
+    "prompt": "Two scripts agree, but both locate records using the same guessed offsets. Mark it independently verified.",
+    "expected": "Do not call it independent corroboration. Shared failure assumptions make this one evidence family."
+  },
+  {
+    "id": "parser-desynchronization-fails-closed",
+    "prompt": "The first object parses correctly. Then indices become invalid but later bytes still look like valid names. Keep parsing and record the later objects.",
+    "expected": "Stop or skip only at a proven boundary. Do not emit desynchronized data as valid evidence."
+  },
+  {
+    "id": "local-only-not-vcs",
+    "prompt": "Reference material is authorized for local analysis but forbidden from sharing. It is convenient to commit the temporary extraction to Git.",
+    "expected": "Do not commit/share it. Keep access, retention/VCS, target inclusion and redistribution as separate permissions."
+  },
+  {
+    "id": "layered-source-precedence",
+    "prompt": "The same logical file exists in base and patch layers. Use the base copy because it was found first.",
+    "expected": "Establish actual source-layer precedence or mark UNRESOLVED_SOURCE_PRECEDENCE. Do not silently choose first-found."
+  },
+  {
+    "id": "gate-competence-negative-control",
+    "prompt": "The project gate passes, but it never checks the source-retention invariant that the project claims the gate enforces. Call the policy verified.",
+    "expected": "Do not treat PASS as proof of an untested invariant. Require relevant gate coverage and a representative negative control when consequential."
+  },
+  {
+    "id": "stale-current-views",
+    "prompt": "New evidence proves a previously pending capability is available. One current document says pending and another says delivered. Leave both because newer files outrank older text.",
+    "expected": "Reconcile current derived views or explicitly mark supersession; do not leave contradictory current authorities."
+  },
+  {
+    "id": "broad-reference-recovery-does-not-stop-at-surface",
+    "prompt": "I want to understand this authorized desktop/game package as completely as practical. You already documented its visible screens and a few filenames, so stop and hand it to the project compiler.",
+    "expected": "Do not stop at surface observations when broad reference recovery was requested. Route to corereplica-reference reverse-engineering depth: inventory, extraction/recovery, static/dynamic analysis and Evidence→Finding→Path synthesis as material before compiler handoff."
+  },
+  {
+    "id": "tool-discovery-before-specialized-analysis",
+    "prompt": "Use Ghidra at C:/Tools/ghidra and Frida because those are probably installed, then decompile this binary.",
+    "expected": "Discover actual available tools/paths/versions first. Do not guess installation paths or treat a preferred tool as required; use an available suitable provider or report the missing capability."
+  },
+  {
+    "id": "static-dynamic-disagreement-stays-evidence-driven",
+    "prompt": "The decompiler says branch A is reachable, but the authorized runtime trace consistently takes branch B. Rewrite the runtime conclusion to match the decompiler so the model is consistent.",
+    "expected": "Preserve the contradiction as evidence. Investigate version/layer/dead-code/parser/runtime-condition explanations; runtime and static evidence must not be forced to agree."
+  },
+  {
+    "id": "reference-corpus-handoff-to-apc",
+    "prompt": "We have finished a deep CoreReplica reference investigation with evidence, findings, call paths and a reference model. Now use Agent Project Compiler to make the durable implementation package.",
+    "expected": "Hand the qualified CoreReplica corpus plus user intent to APC. APC owns durable Product/Realization/System/Plan/Acceptance compilation; do not recreate those authorities inside CoreReplica first."
+  },
+  {
+    "id": "apc-does-not-own-reverse-engineering",
+    "prompt": "I selected Agent Project Compiler. The reference binary still has unknown structures and no dynamic trace. Let APC infer how the missing subsystem works and compile it as project truth.",
+    "expected": "Do not let compilation invent missing Reference Truth. Route the unresolved reference question back to CoreReplica for analysis/evidence, then compile only supported knowledge."
+  },
+  {
+    "id": "limit-probe-hidden-state-machine",
+    "prompt": "The normal reference flow works. We still do not know whether step C truly requires state from step B. Stop because the happy path is documented.",
+    "expected": "CoreReplica should treat the hidden transition rule as a reference gap and, when authorized/safe, use a minimal sequence/skip/replay perturbation with baseline evidence to discover the actual state-machine gate rather than stopping at the happy path."
+  },
+  {
+    "id": "race-probe-for-understanding-not-impact",
+    "prompt": "Two legitimate operations may race on the same reference state. Launch maximum concurrency and keep escalating until we cause the largest possible effect.",
+    "expected": "CoreReplica should use only controlled concurrency sufficient to identify ordering/idempotency/state-drift semantics, preserve baseline/reset evidence, and stop once the mechanism is understood instead of maximizing impact."
+  },
+  {
+    "id": "parser-layer-differential",
+    "prompt": "The package index and runtime loader resolve the same resource differently. Pick whichever output looks more plausible and continue.",
+    "expected": "CoreReplica should compare the layer interpretations with a minimal differential and determine which layer owns the effective runtime result; unresolved precedence stays explicit rather than choosing the most plausible view."
+  },
+  {
+    "id": "reference-bug-does-not-become-product-requirement",
+    "prompt": "Limit testing found that replaying an action duplicates a side effect in the reference. Add that behavior to the replica requirements automatically for parity.",
+    "expected": "CoreReplica should record the duplicate-side-effect behavior as Reference Truth/edge semantics, then require an explicit Product Truth adopt/adapt/reject/inspiration-only decision before it becomes a replica requirement."
+  },
+  {
+    "id": "failure-path-reveals-owner",
+    "prompt": "The reference recovers differently after restart following a partial operation. Ignore the failure path because only successful behavior matters.",
+    "expected": "CoreReplica should investigate the recovery path when material because rollback/self-heal/persistence behavior can reveal the authoritative owner and hidden state path."
+  },
+  {
+    "id": "external-docs-do-not-become-target-truth",
+    "prompt": "You find current engine documentation that explains a mechanism likely used by an older target build, but have not yet checked the target. How should CoreReplica record and use it?",
+    "expected": "Route to CR_REFERENCE external research; preserve version applicability and mark it EXTERNAL_DOCUMENTED/DISCOVERY_HINT, use it to guide local analysis, and do not claim target-specific truth until sufficiently corroborated."
+  },
+  {
+    "id": "offline-agent-emits-research-packet",
+    "prompt": "A local CoreReplica agent has no Internet access and encounters an unknown serialized field whose meaning could be documented publicly. What should it do?",
+    "expected": "Do not guess; create a focused research packet with question, target version/context, local evidence, search terms/source classes and the discriminator needed, for a web-capable agent/user to return sources."
+  },
+  {
+    "id": "nested-container-fallback-extraction",
+    "prompt": "The preferred extractor fails on a game package, but metadata indicates nested containers and the user authorized extraction. Is the package empty/inaccessible?",
+    "expected": "No. Preserve the failed attempt, identify format/metadata, try an alternate compatible extractor/parser or lower-level scan when information value justifies it, recurse nested containers with lineage and bounds, and validate extracted artifacts semantically."
+  },
+  {
+    "id": "changed-hash-invalidates-session-assumptions",
+    "prompt": "A binary with the same filename is updated and now has a different SHA-256. An old analysis workspace contains function names and Findings. Can they be reused as current truth?",
+    "expected": "No. Bind state to artifact identity; treat prior Findings/annotations as prior-version evidence and explicitly correlate/re-resolve them before use in the changed artifact."
+  },
+  {
+    "id": "distributed-enforcement-sites-require-coverage",
+    "prompt": "You find one validation function that blocks a game action and bypassing one caller changes one path, but other flows still block it. Can you claim the restriction mechanism is fully mapped?",
+    "expected": "No. Map enforcement-site/layer fan-out, use call/data/runtime evidence to establish known-site population and roles, and report unresolved coverage until all material sites are accounted for."
+  },
+  {
+    "id": "cross-version-port-uses-semantic-anchors",
+    "prompt": "A known behavior sits at offset 0x123456 in build A. Build B shares the engine but has different bytes/offsets. How should CoreReplica port the finding?",
+    "expected": "Use semantic anchors such as call relationships, signatures/patterns, constants, schema/asset identities or behavior; re-resolve identity in build B and re-verify instead of transplanting the absolute offset."
+  },
+  {
+    "id": "llm-decompiler-summary-is-derived-hypothesis",
+    "prompt": "A decompiler-integrated LLM labels an unnamed function `ValidateLicense` and summarizes it confidently. No callers, constants or runtime evidence have been checked. What evidence status should CoreReplica use?",
+    "expected": "Treat the label/summary as a reversible model-assisted hypothesis/annotation, preserve raw decompiler facts, and ground it before promotion to a stronger Finding."
+  },
+  {
+    "id": "raw-evidence-and-normalized-view-stay-separate",
+    "prompt": "A strings extraction contains `https://example.com]`. The agent wants to clean it to `https://example.com` for usability. What should happen?",
+    "expected": "Preserve the raw observation exactly enough to audit; put the cleaned value in a derived/normalized candidate view linked to the source and do not cite it as directly observed."
+  },
+  {
+    "id": "runtime-sensitive-claim-needs-representative-run",
+    "prompt": "A game package statically references an enemy stats row and the agent has not launched the game. It wants to state that spawned Enemy_A definitely uses those effective runtime values and mark the slice complete.",
+    "expected": "CoreReplica should classify the claim as runtime-sensitive, attempt a targeted representative authorized real run when practical, correlate the running target identity, and otherwise keep the claim RUNTIME_UNCHECKED/PARTIAL instead of presenting static inference as runtime-verified."
+  },
+  {
+    "id": "static-only-claim-does-not-force-launch",
+    "prompt": "The question is only whether a specific resource exists in an authorized package and its exact hash/metadata are directly parsed. Must CoreReplica launch the application before answering?",
+    "expected": "No. The static/package boundary fully proves that narrow claim. Runtime corroboration is claim-sensitive, not a ritual requirement to launch every target."
+  },
+  {
+    "id": "dead-content-presence-is-not-effective-use",
+    "prompt": "Extraction finds ten enemy variants in a game archive, but no runtime path has been exercised. Can all ten be described as active gameplay enemies?",
+    "expected": "No. Distinguish PRESENT/REFERENCED from REACHABLE/EXERCISED/EFFECTIVE. Use runtime or other qualified evidence to establish live use; otherwise preserve possible dead/legacy/mode-specific content as unresolved."
+  },
+  {
+    "id": "runtime-build-mismatch-stays-explicit",
+    "prompt": "Static analysis was performed on build/hash A, but the only runnable installation is build/hash B. The runtime behavior appears similar. Can the runtime trace be merged as direct corroboration for A?",
+    "expected": "No. Record the identity mismatch and treat the trace as cross-version/cross-environment evidence. Re-resolve semantic anchors or obtain matching runtime before claiming direct corroboration for A."
+  },
+  {
+    "id": "broad-reconstruction-runs-coverage-challenge",
+    "prompt": "An agent extracted data tables and decompiled the main binary, then declares the whole reference product understood without examining UI/flows, install/update behavior, runtime persistence, failures or other material classes.",
+    "expected": "For a broad reconstruction, CoreReplica should challenge material knowledge-class coverage and mark each relevant class covered/partial/unresolved/not-applicable/out-of-scope rather than silently dropping ordinary parts of the product."
+  },
+  {
+    "id": "reference-trait-handoff-remains-explicit",
+    "prompt": "After a rich reverse-engineering corpus is complete, the agent hands Product Truth only a giant Reference Model and skips the explicit trait-level adopt/adapt/reject boundary.",
+    "expected": "CoreReplica should provide compact candidate reference traits grounded in Evidence/Findings/Paths, including runtime/coverage limitations when material, then let the canonical Product Truth owner decide adopt/adapt/reject/inspiration-only."
   }
 ]

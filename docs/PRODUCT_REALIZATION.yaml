@@ -1,20 +1,32 @@
 version: 1
 master_outcomes:
-  - id: OUT_REFERENCE_SEPARATION
-    outcome: Reference observations remain sourced, bounded, uncertain where necessary, and separate from target product decisions.
-    owner: CR_REFERENCE
-  - id: OUT_INDEPENDENT_PRODUCT
-    outcome: A target product can explicitly adopt, adapt, reject or use reference traits only as inspiration.
-    owner: CR_PRODUCT
-  - id: OUT_CANONICAL_IMPLEMENTATION
-    outcome: Implementation follows target repository canonical owners/contracts instead of a clone-specific parallel architecture.
-    owner: CR_BUILD
-  - id: OUT_EVIDENCE_COMPLETION
-    outcome: Completion/parity claims are derived from verifier-owned evidence at the required boundary.
-    owner: CR_VERIFY
-  - id: OUT_DISTINCT_MARKET_IDENTITY
-    outcome: Market/brand/launch material is sourced, non-fabricated and independently branded.
-    owner: CR_MARKET
-  - id: OUT_GUARDED_RELEASE
-    outcome: Release preparation can complete without crossing a consequential transition before explicit approval.
-    owner: CR_RELEASE
+- id: OUT_REFERENCE_SEPARATION
+  outcome: Authorized reference targets can be progressively reverse-engineered into
+    qualified Evidence, Findings, Paths and a usable Reference Model with explicit
+    coverage/unknowns, targeted runtime corroboration for runtime-sensitive claims when
+    material, and a compact replica-trait handoff separate from target Product Truth.
+  owner: CR_REFERENCE
+- id: OUT_COMPILER_BOUNDARY
+  outcome: When APC is selected, CoreReplica hands off its qualified reference corpus
+    and does not duplicate APC project-compilation authorities.
+  owner: CR_ORCHESTRATION
+- id: OUT_INDEPENDENT_PRODUCT
+  outcome: A target product can explicitly adopt, adapt, reject or use reference traits
+    only as inspiration.
+  owner: CR_PRODUCT
+- id: OUT_CANONICAL_IMPLEMENTATION
+  outcome: Implementation follows canonical project/workspace owners/contracts instead
+    of a replica-specific parallel architecture.
+  owner: CR_BUILD
+- id: OUT_EVIDENCE_COMPLETION
+  outcome: Completion/parity claims are derived from verifier-owned evidence at the
+    required boundary.
+  owner: CR_VERIFY
+- id: OUT_DISTINCT_MARKET_IDENTITY
+  outcome: Market/brand/launch material is sourced, non-fabricated and independently
+    branded.
+  owner: CR_MARKET
+- id: OUT_GUARDED_RELEASE
+  outcome: Release preparation can complete without crossing a consequential transition
+    before explicit approval.
+  owner: CR_RELEASE

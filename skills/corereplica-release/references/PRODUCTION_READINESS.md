@@ -16,6 +16,12 @@ Use only for the parts relevant to the target project's deployment/runtime.
 - Email: sending-domain/provider verification and deliverability basics are ready when email is product-critical.
 - DNS/domain changes use the provider's current authoritative values, not hard-coded historical defaults.
 
+## Release material provenance
+
+- Every third-party component/content item that ships has traceable provenance and a documented basis covering its intended product use and redistribution.
+- Reference-only/local intermediate material with unclear redistribution rights stays outside the release payload.
+- Technical access or successful packaging is not evidence of redistribution permission.
+
 ## Operational checks
 
 - Production build/package succeeds.

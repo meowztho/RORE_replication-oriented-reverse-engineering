@@ -1,50 +1,135 @@
 version: 1
 criteria:
-  - id: A001
-    requirement: Plugin contains exactly the intended eight canonical skills and a valid Agent Plugins 1.0 root manifest.
-    evidence: scripts/validate_project.py
-  - id: A002
-    requirement: No skill defines a mandatory full pipeline; orchestration routes by material trigger.
-    evidence: tests/test_governance.py
-  - id: A003
-    requirement: Reference artifacts and product requirements are separate schemas.
-    evidence: tests/test_governance.py
-  - id: A004
-    requirement: Builder progress cannot satisfy parity/completion.
-    evidence: tests/test_evidence_parity.py
-  - id: A005
-    requirement: Verification skill does not own a fix loop and routes corrections back to implementation owners.
-    evidence: tests/test_governance.py
-  - id: A006
-    requirement: Release skill preserves exact approval boundary while allowing reversible preparation.
-    evidence: tests/test_governance.py
-  - id: A007
-    requirement: Retained/adapted deterministic helpers pass regression tests.
-    evidence: Python unittest suite
-  - id: A008
-    requirement: Source provenance and upstream MIT licensing are retained.
-    evidence: SOURCE_PROVENANCE.md, LICENSE-UPSTREAM, THIRD_PARTY_NOTICES.md
-  - id: A009
-    requirement: Plugin archive contains one self-contained `corereplica/` directory and no secrets/dependency directories.
-    evidence: packaging inspection
-  - id: A010
-    requirement: Useful upstream domain procedures remain available JIT without restoring the mandatory upstream pipeline or overlapping completion authority.
-    evidence: tests/test_governance.py
-  - id: A011
-    requirement: CoreReplica supports non-Git/binary/distribution workspaces without inventing repository state or contaminating the shippable payload.
-    evidence: tests/test_governance.py
-  - id: A012
-    requirement: CoreReplica has a bounded standalone ownership-safety fallback when Core-First is unavailable, while preferring the companion plugin when present.
-    evidence: tests/test_governance.py
-  - id: A013
-    requirement: Real-boundary verification with persistent side effects requires isolation/baseline/cleanup or an explicit INCONCLUSIVE/approval outcome.
-    evidence: tests/test_governance.py
-  - id: A014
-    requirement: Deferred/out-of-scope Product Truth is distinct from priority and is excluded from parity scoring without schema errors.
-    evidence: tests/test_evidence_parity.py
-  - id: A015
-    requirement: Autonomous runs can preserve consequential unresolved user intent as PROVISIONAL_INTERPRETATION without fabricating USER authority.
-    evidence: tests/test_governance.py
-  - id: A016
-    requirement: Verification roles remain distinct: CoreReplica parity, OPV real-boundary procedure, Core-First architecture conformance, Independent Review risk review.
-    evidence: tests/test_governance.py
+- id: A001
+  requirement: Plugin contains exactly the intended eight canonical skills and a valid
+    Agent Plugins 1.0 root manifest.
+  evidence: scripts/validate_project.py
+- id: A002
+  requirement: No skill defines a mandatory full pipeline; orchestration routes by
+    material trigger.
+  evidence: tests/test_governance.py
+- id: A003
+  requirement: Reference artifacts and product requirements are separate schemas.
+  evidence: tests/test_governance.py
+- id: A004
+  requirement: Builder progress cannot satisfy parity/completion.
+  evidence: tests/test_evidence_parity.py
+- id: A005
+  requirement: Verification skill does not own a fix loop and routes corrections back
+    to implementation owners.
+  evidence: tests/test_governance.py
+- id: A006
+  requirement: Release skill preserves exact approval boundary while allowing reversible
+    preparation.
+  evidence: tests/test_governance.py
+- id: A007
+  requirement: Retained/adapted deterministic helpers pass regression tests.
+  evidence: Python unittest suite
+- id: A008
+  requirement: Source provenance and upstream MIT licensing are retained.
+  evidence: SOURCE_PROVENANCE.md, LICENSE-UPSTREAM, THIRD_PARTY_NOTICES.md
+- id: A009
+  requirement: Plugin archive contains one self-contained corereplica directory and
+    no secrets/dependency directories.
+  evidence: packaging inspection
+- id: A010
+  requirement: Useful upstream domain procedures remain available JIT without restoring
+    the mandatory upstream pipeline or overlapping completion authority.
+  evidence: tests/test_governance.py
+- id: A011
+  requirement: CoreReplica supports non-Git/binary/distribution workspaces without
+    inventing repository state or contaminating the shippable payload.
+  evidence: tests/test_governance.py
+- id: A012
+  requirement: CoreReplica has a bounded standalone ownership-safety fallback when
+    Core-First is unavailable, while preferring the companion plugin when present.
+  evidence: tests/test_governance.py
+- id: A013
+  requirement: Real-boundary verification with persistent side effects requires isolation/baseline/cleanup
+    or an explicit INCONCLUSIVE/approval outcome.
+  evidence: tests/test_governance.py
+- id: A014
+  requirement: Deferred/out-of-scope Product Truth is distinct from priority and is
+    excluded from parity scoring without schema errors.
+  evidence: tests/test_evidence_parity.py
+- id: A015
+  requirement: Autonomous runs can preserve consequential unresolved user intent as
+    PROVISIONAL_INTERPRETATION without fabricating USER authority.
+  evidence: tests/test_governance.py
+- id: A016
+  requirement: 'Verification roles remain distinct: CoreReplica parity, OPV real-boundary
+    procedure, Core-First architecture conformance, Independent Review risk review.'
+  evidence: tests/test_governance.py
+- id: A017
+  requirement: Source access/analysis is distinct from retention/VCS, target inclusion
+    and redistribution; no blanket prohibition based only on source/material type
+    is reintroduced.
+  evidence: tests/test_governance.py, tests/test_evidence_qualification_contract.py,
+    scripts/validate_project.py
+- id: A018
+  requirement: CoreReplica contractually forbids reference claims from exceeding the
+    proven evidence boundary; object identity, completeness and independence remain
+    explicit when unproven.
+  evidence: tests/test_evidence_qualification_contract.py, scripts/validate_project.py
+- id: A019
+  requirement: CoreReplica contractually requires proportional identity, coverage,
+    lineage, parser-safety and source-precedence qualification for material transformed/parsed/derived
+    reference evidence without creating a second verifier owner.
+  evidence: tests/test_evidence_qualification_contract.py
+- id: A020
+  requirement: The project gate self-tests a representative evidence-qualification
+    mutant so PASS is not claimed for an invariant the gate cannot detect.
+  evidence: scripts/validate_project.py
+- id: A021
+  requirement: 'CR_REFERENCE supports progressive authorized reverse engineering beyond
+    surface observation: inventory, extraction/recovery, static/dynamic analysis,
+    Evidence→Finding→Path synthesis and a usable Reference Model, behind JIT depth
+    rather than a mandatory pipeline.'
+  evidence: tests/test_reference_reverse_engineering.py
+- id: A022
+  requirement: 'CoreReplica and APC have a non-overlapping boundary: CoreReplica produces
+    the qualified reference corpus; APC, when selected, compiles durable target project
+    authorities.'
+  evidence: tests/test_reference_reverse_engineering.py, docs/DECISION_COMPENDIUM.md
+- id: A023
+  requirement: Reverse-engineering tool/provider selection is based on discovered
+    available capabilities and target needs rather than guessed paths or one hard-coded
+    toolchain.
+  evidence: tests/test_reference_reverse_engineering.py
+- id: A024
+  requirement: The saved plugin release is reconciled against the candidate package
+    file set so stale overlay files cannot survive unnoticed.
+  evidence: release post-save inventory reconciliation
+- id: A025
+  requirement: CR_REFERENCE can use controlled adversarial/limit probing to reveal
+    hidden invariants, state-machine/timing/parser/recovery semantics while keeping
+    the method JIT, evidence-grounded, non-destructive by default, and separate from
+    Product Truth or exploit-impact maximization.
+  evidence: tests/test_adversarial_limit_probing.py
+- id: A026
+  requirement: CR_REFERENCE can use version-aware external research to discover mechanisms
+    and local evidence sources while keeping target-specific claims distinct until
+    target corroboration is sufficient.
+  evidence: tests/test_external_research_and_comparative_re.py
+- id: A027
+  requirement: Reference recovery uses format-first bounded fallback/recursive extraction
+    and binds reusable analysis state to target identity instead of treating one extractor
+    result or stale workspace as authoritative.
+  evidence: tests/test_external_research_and_comparative_re.py
+- id: A028
+  requirement: Decompiler/LLM semantic annotations remain reversible derived hypotheses,
+    broad mechanism claims account for enforcement-site fan-out, and cross-version
+    analysis re-resolves semantic anchors instead of transplanting raw offsets.
+  evidence: tests/test_external_research_and_comparative_re.py
+- id: A029
+  requirement: CR_REFERENCE classifies material claims by evidence boundary and requires
+    targeted runtime corroboration for runtime-sensitive claims when practical, while
+    allowing static-only claims to remain static and preserving explicit runtime-unchecked/blocked
+    outcomes.
+  evidence: tests/test_runtime_corroboration_and_lineage.py, scripts/validate_project.py
+- id: A030
+  requirement: Broad reference reconstruction preserves earlier CoreReplica surface/flow
+    and reference-trait handoff semantics while adding richer RE depth; material knowledge
+    classes are covered or explicitly partial/unresolved/not-applicable/out-of-scope before
+    broad completeness claims.
+  evidence: tests/test_runtime_corroboration_and_lineage.py

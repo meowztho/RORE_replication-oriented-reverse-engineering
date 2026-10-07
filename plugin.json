@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "corereplica",
-  "version": "0.2.0",
-  "description": "Core-First clean-room reference reconstruction with JIT routing, workspace-aware execution, side-effect-safe evidence verification, separated product truth, and guarded release.",
+  "version": "0.3.3",
+  "description": "Core-First reference reverse engineering with evidence-qualified extraction, targeted runtime corroboration, external research, adversarial probing, optional replication, and guarded release.",
   "author": {
     "name": "CoreReplica contributors"
   },
@@ -10,17 +10,17 @@
     "com.openai": {
       "interface": {
         "displayName": "CoreReplica",
-        "shortDescription": "Core-first app reconstruction",
-        "longDescription": "Study reference products clean-room style, define an independent target product, implement through canonical owners, verify real behavior across visual and non-visual boundaries with side-effect controls, and release through explicit gates.",
+        "shortDescription": "Reverse-engineer references",
+        "longDescription": "Reverse-engineer and reconstruct authorized reference software, websites, games, artifacts, data and systems using extraction, static/dynamic analysis, targeted runtime corroboration, public-source research/corroboration and controlled adversarial probing to recover qualified evidence, findings, causal paths and usable reference models; optionally define and build an independent replica through canonical owners, with APC as an optional downstream project compiler.",
         "developerName": "CoreReplica contributors",
         "category": "Developer Tools",
         "capabilities": [
           "Interactive"
         ],
         "defaultPrompt": [
-          "Study this reference product and define a clean-room CoreReplica plan.",
-          "Continue this CoreReplica project using the smallest relevant JIT procedure.",
-          "Verify this CoreReplica implementation without letting the verifier fix its own findings."
+          "Reverse-engineer this authorized reference target and recover as much useful technical knowledge as practical.",
+          "Continue this CoreReplica reference reconstruction using the smallest relevant JIT procedure.",
+          "Use this CoreReplica reference corpus to define or verify an independent replica without confusing reference evidence with product truth."
         ]
       }
     }

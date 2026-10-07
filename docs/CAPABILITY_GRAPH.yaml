@@ -1,41 +1,60 @@
 version: 1
 capabilities:
-  - id: CAP_ROUTE_JIT
-    owner: CR_ORCHESTRATION
-    contract: Select the smallest procedural owner set required by current material triggers.
-  - id: CAP_REFERENCE_EVIDENCE
-    owner: CR_REFERENCE
-    contract: Produce sourced observations without promoting them into target requirements.
-  - id: CAP_REFERENCE_SCOPE
-    owner: CR_REFERENCE
-    contract: Bound reference study to the requested product slice and allowed source boundary.
-  - id: CAP_PRODUCT_DECISIONS
-    owner: CR_PRODUCT
-    contract: Convert reference traits plus user intent into explicit target decisions and requirements.
-  - id: CAP_DESIGN_TRANSLATION
-    owner: CR_DESIGN
-    contract: Translate reference visual/system evidence into independent semantic design roles and component contracts.
-  - id: CAP_IMPLEMENTATION_EXECUTION
-    owner: CR_BUILD
-    contract: Implement admitted target requirements through canonical repository owners without changing Product Truth.
-  - id: CAP_BACKEND_INTEGRATION
-    owner: CR_BUILD
-    contract: Implement auth/data/payments/jobs/integrations through project-native owners and official provider interfaces when material.
-  - id: CAP_RUNTIME_VERIFICATION
-    owner: CR_VERIFY
-    contract: Exercise the target product at the closest practical boundary and record sufficient current evidence.
-  - id: CAP_PARITY_ANALYSIS
-    owner: CR_VERIFY
-    contract: Compare target requirements/reference goals to verifier-owned evidence without trusting builder self-report.
-  - id: CAP_MARKET_FEEDBACK
-    owner: CR_MARKET
-    contract: Analyse sourced external feedback with provenance and uncertainty.
-  - id: CAP_BRAND_PROFILE
-    owner: CR_MARKET
-    contract: Define independent identity/voice/value inputs without acquiring Design-System ownership.
-  - id: CAP_LAUNCH_MATERIAL
-    owner: CR_MARKET
-    contract: Prepare evidence-grounded pricing/listing/landing material using current external rules when material.
-  - id: CAP_RELEASE_GATE
-    owner: CR_RELEASE
-    contract: Derive release readiness from current evidence and stop at the exact gated transition absent approval.
+- id: CAP_ROUTE_JIT
+  owner: CR_ORCHESTRATION
+  contract: Select the smallest procedural owner set required by current material
+    triggers.
+- id: CAP_REFERENCE_EVIDENCE
+  owner: CR_REFERENCE
+  contract: Recover qualified Evidence from authorized target surfaces/artifacts and
+    promote only supported interpretations into Findings.
+- id: CAP_REFERENCE_SCOPE
+  owner: CR_REFERENCE
+  contract: Classify target/surfaces, pursue progressive high-value reverse engineering
+    including claim-sensitive runtime corroboration, controlled adversarial limit probes,
+    version-aware external research/corroboration, enforcement-site coverage and cross-version
+    semantic anchors when useful, challenge broad reconstruction coverage, and preserve
+    authorization plus unresolved coverage boundaries.
+- id: CAP_REFERENCE_PATH_RECONSTRUCTION
+  owner: CR_REFERENCE
+  contract: Connect Evidence and Findings into reproducible user/call/data/runtime/system
+    Paths and a usable Reference Model.
+- id: CAP_PRODUCT_DECISIONS
+  owner: CR_PRODUCT
+  contract: Convert reference traits plus user intent into explicit target decisions
+    and requirements.
+- id: CAP_DESIGN_TRANSLATION
+  owner: CR_DESIGN
+  contract: Translate reference visual/system evidence into independent semantic design
+    roles and component contracts.
+- id: CAP_IMPLEMENTATION_EXECUTION
+  owner: CR_BUILD
+  contract: Implement admitted target requirements through canonical project/workspace
+    owners without changing Product Truth.
+- id: CAP_BACKEND_INTEGRATION
+  owner: CR_BUILD
+  contract: Implement auth/data/payments/jobs/integrations through project-native
+    owners and official provider interfaces when material.
+- id: CAP_RUNTIME_VERIFICATION
+  owner: CR_VERIFY
+  contract: Exercise the target product at the closest practical boundary and record
+    sufficient current evidence.
+- id: CAP_PARITY_ANALYSIS
+  owner: CR_VERIFY
+  contract: Compare target requirements/reference goals to verifier-owned evidence
+    without trusting builder self-report.
+- id: CAP_MARKET_FEEDBACK
+  owner: CR_MARKET
+  contract: Analyse sourced external feedback with provenance and uncertainty.
+- id: CAP_BRAND_PROFILE
+  owner: CR_MARKET
+  contract: Define independent identity/voice/value inputs without acquiring Design-System
+    ownership.
+- id: CAP_LAUNCH_MATERIAL
+  owner: CR_MARKET
+  contract: Prepare evidence-grounded pricing/listing/landing material using current
+    external rules when material.
+- id: CAP_RELEASE_GATE
+  owner: CR_RELEASE
+  contract: Derive release readiness from current evidence and stop at the exact gated
+    transition absent approval.

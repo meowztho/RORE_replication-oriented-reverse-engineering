@@ -1,6 +1,6 @@
 # Workspace Shape and Standalone Operation
 
-Read when the target is not clearly a normal source repository, when CoreReplica artifacts could contaminate the runnable/shippable object, when no Git revision exists, or when Core-First Governance is unavailable.
+Read when the target is not clearly a normal source repository, when CoreReplica artifacts could contaminate the runnable/shippable object, when no Git revision exists, when reference/scratch material has special retention rules, or when Core-First Governance is unavailable.
 
 ## Classify the workspace before choosing paths
 
@@ -13,6 +13,24 @@ Use the smallest accurate shape:
 - **mixed workspace** — source/control plane and runnable/distributable targets are distinct.
 
 Do not require Git merely because a procedure says `revision`. Use the strongest stable identity actually available: Git SHA, package/content hash, build ID/version, immutable evidence-run ID, or an explicitly local revision label tied to hashes. Never fabricate repository state.
+
+## Separate workspace roles
+
+When material, keep these roles distinct:
+
+```text
+raw/reference evidence
+scratch/intermediate output
+control-plane/project metadata
+target/runnable/shippable payload
+```
+
+- Raw/reference evidence may be authoritative for what was observed but may still be local-only or non-shareable.
+- Scratch/intermediate output is disposable working material. It must not silently become durable project truth or version-controlled source merely because it was created under the project root.
+- Control-plane metadata records project decisions/evidence and should stay outside the payload when its presence would alter the target.
+- Target payload contains only what the target/release contract admits.
+
+If source handling says `local-only` or `vcs=forbidden`, keep it out of tracked source and collaboration uploads. Where the project gate claims to enforce that invariant, give the gate a representative negative control that would fail if such material became tracked.
 
 ## Separate control plane from product payload
 

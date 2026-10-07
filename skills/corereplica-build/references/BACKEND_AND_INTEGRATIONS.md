@@ -48,7 +48,7 @@ For each material integration record or verify, from current official documentat
 - provider review/verification requirements and likely lead time;
 - failure/degraded-mode behavior.
 
-Provider adapters stay behind target capability contracts. Never copy or depend on the reference application's private credentials/endpoints.
+Provider adapters stay behind target capability contracts. Do not treat observed/private credentials or endpoints as authorization; depend only on contracts/endpoints whose use is authorized for the target product, and never reuse another party's credentials.
 
 ## Uploads and untrusted input
 

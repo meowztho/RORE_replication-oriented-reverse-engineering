@@ -125,7 +125,7 @@ class Governance(unittest.TestCase):
         plan = read("docs/PROJECT_PLAN.yaml")
         self.assertRegex(plan, r"P6_FIELD_EVAL_ANOTE[\s\S]*?status: complete")
         self.assertRegex(plan, r"P7_FIELD_EVAL_HARDENING[\s\S]*?status: complete")
-        self.assertRegex(plan, r"P8_NEXT_FIELD_EVAL[\s\S]*?status: ready")
+        self.assertRegex(plan, r"P12_NEXT_FIELD_EVAL[\s\S]*?status: ready")
 
     def test_workspace_shape_and_standalone_degradation(self):
         orch = read("skills/corereplica-orchestration/SKILL.md")
@@ -154,6 +154,51 @@ class Governance(unittest.TestCase):
         self.assertIn("Observable Product Verification", routing)
         self.assertIn("Core-First Verifier", routing)
         self.assertIn("Independent Review", routing)
+
+    def test_source_use_distribution_policy_is_consistent(self):
+        policy = read("skills/corereplica-orchestration/references/SOURCE_USE_AND_DISTRIBUTION_POLICY.md")
+        self.assertIn("access/analysis", policy)
+        self.assertIn("target-product inclusion and distribution", policy)
+        self.assertIn("may access / inspect / analyze / transform for this task", policy)
+        self.assertIn("may redistribute / publish / sublicense in the release", policy)
+        self.assertIn("documented basis", policy)
+
+        combined = "\n".join([
+            read("skills/corereplica-reference/SKILL.md"),
+            read("skills/corereplica-design/SKILL.md"),
+            read("skills/corereplica-build/SKILL.md"),
+            read("skills/corereplica-release/SKILL.md"),
+            read("skills/corereplica-release/references/PRODUCTION_READINESS.md"),
+            read("docs/ARCHITECTURE_GUARDRAILS.yaml"),
+            read("docs/USER_VISION.md"),
+        ])
+        for phrase in ("provenance", "intended use", "redistribution"):
+            self.assertIn(phrase, combined.lower())
+        for forbidden in (
+            "obtain or copy proprietary source, bundles, binaries or decompiled implementation",
+            "do not copy proprietary reference code/assets/copy/private apis",
+            "do not copy proprietary assets/copy",
+            "a source-code extractor, decompiler",
+        ):
+            self.assertNotIn(forbidden, combined.lower())
+
+    def test_authority_yaml_parses_when_yaml_runtime_is_available(self):
+        try:
+            import yaml
+        except ImportError:
+            self.skipTest("PyYAML not installed")
+        for rel in (
+            "docs/ACCEPTANCE.yaml",
+            "docs/ARCHITECTURE_GUARDRAILS.yaml",
+            "docs/CAPABILITY_GRAPH.yaml",
+            "docs/PRODUCT_REALIZATION.yaml",
+            "docs/PROJECT_INDEX.yaml",
+            "docs/PROJECT_PLAN.yaml",
+            "docs/SYSTEM_INTEGRATION.yaml",
+            "docs/SYSTEM_MAP.yaml",
+        ):
+            with self.subTest(rel=rel):
+                yaml.safe_load(read(rel))
 
 
 if __name__ == "__main__":

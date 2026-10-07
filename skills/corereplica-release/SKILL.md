@@ -32,10 +32,11 @@ Read `references/PRODUCTION_READINESS.md` when production environment/data, DNS,
 2. Reconcile current required outcomes and current verifier-owned evidence. Stale/missing evidence stays missing.
 3. Run project-native build/test/security/data/migration/privacy/operational checks that are actually applicable.
 4. Verify current external provider/platform requirements from official sources when material.
-5. Complete reversible preparation that is already authorized: draft env/DNS settings, validate migrations, prepare preview/staging, configure non-live resources, assemble store metadata, generate runbook/rollback steps.
-6. Define the exact gated transition and the evidence that counts as approval.
-7. If approval is absent, stop immediately before the transition while clearly reporting what is prepared, what remains, and what exact action is gated.
-8. After an approved transition, verify the real production/external outcome on the relevant settled boundary. Do not treat the deploy command's success as proof that the user flow works.
+5. Reconcile third-party material included in the release against recorded provenance and the basis that covers its intended product use and redistribution. Unclear rights remain a release blocker for that material; reference-only/local intermediates stay outside the payload.
+6. Complete reversible preparation that is already authorized: draft env/DNS settings, validate migrations, prepare preview/staging, configure non-live resources, assemble store metadata, generate runbook/rollback steps.
+7. Define the exact gated transition and the evidence that counts as approval.
+8. If approval is absent, stop immediately before the transition while clearly reporting what is prepared, what remains, and what exact action is gated.
+9. After an approved transition, verify the real production/external outcome on the relevant settled boundary. Do not treat the deploy command's success as proof that the user flow works.
 
 ## Examples of consequential transitions
 

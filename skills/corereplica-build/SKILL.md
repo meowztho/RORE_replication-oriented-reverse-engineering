@@ -1,6 +1,6 @@
 ---
 name: corereplica-build
-description: Implement CoreReplica target requirements in the current repository through its canonical owners, contracts, data paths, and design system. Use for source changes, screens, flows, backend/auth/data/payments/jobs/integrations, or replacing temporary/fake paths. Do not redefine product scope, create clone-specific parallel owners, or mark requirements verified from implementation progress.
+description: Implement CoreReplica target requirements in the current project/workspace through its canonical owners, contracts, data paths, and design system. Use for source changes, screens, flows, backend/auth/data/payments/jobs/integrations, or replacing temporary/fake paths. Do not redefine product scope, create clone-specific parallel owners, or mark requirements verified from implementation progress.
 ---
 
 # CoreReplica Build
@@ -20,7 +20,7 @@ If any of those are unresolved, route back rather than inventing a local answer.
 
 ## Core rules
 
-1. Write independent implementation from target requirements and allowed reference evidence; do not copy proprietary reference code/assets/copy/private APIs.
+1. Implement from target requirements and authorized reference evidence. Source access/analysis does not by itself authorize target inclusion or redistribution; any third-party code/assets/copy/binaries/data/API dependency included in the product must have a documented basis covering its intended use.
 2. Reuse/correct/configure/compose existing project owners before extending architecture.
 3. Equivalent producers converge before domain behavior. A builder/importer/agent/reference path does not get a private business-rule path.
 4. Keep fake/synthetic data behind the same declared consumer contract when used for a walking skeleton. Mark resulting evidence synthetic; it cannot prove representative production behavior.

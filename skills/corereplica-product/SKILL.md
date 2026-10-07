@@ -5,7 +5,11 @@ description: Define the independent target product from user intent plus referen
 
 # CoreReplica Product Definition
 
-Own **target Product Truth** for the CoreReplica-specific fallback artifacts. In a compiled/mature project, update the project's existing product authorities instead of creating duplicates.
+Own the **target-decision procedure** for direct CoreReplica replication. The fallback files below are Product Truth only when the target has no stronger canonical Product Truth owner. If APC is selected or a compiled/mature project already owns Product Truth, route proposed reference-trait decisions into that owner instead of creating a parallel CoreReplica requirements set.
+
+## APC / project-authority boundary
+
+CoreReplica Reference Truth is an input to product compilation, not a substitute for it. When the user asks APC to compile the project, hand APC the qualified `Evidence → Findings → Paths → Reference Model` corpus plus user intent; consume APC's resulting Product/Realization authorities downstream. Do not generate APC-style System Map/Plan/Acceptance/Blueprint artifacts here.
 
 ## Inputs
 
@@ -16,7 +20,7 @@ Own **target Product Truth** for the CoreReplica-specific fallback artifacts. In
 
 ## Output
 
-Fallback artifacts:
+Standalone fallback artifacts (only when no stronger target Product Truth owner exists):
 
 ```text
 corereplica/product/PRODUCT_SCOPE.md

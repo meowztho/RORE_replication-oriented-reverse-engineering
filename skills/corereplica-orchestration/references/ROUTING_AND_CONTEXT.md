@@ -7,17 +7,18 @@ A request may legitimately require several procedures, but correctness must not 
 Typical sequence:
 
 ```text
-reference uncertainty
+reference target / unknown
 → corereplica-reference
-→ raw observation/evidence
-→ corereplica-product
+→ Evidence → Findings → Paths → Reference Model
+→ APC when durable project compilation is requested/selected
+   OR corereplica-product for standalone direct target decisions
 → explicit target decision
 → Core-First owner/change resolution when material
 → corereplica-build
 → corereplica-verify / OPV
 ```
 
-Market research may run before implementation when the user is deciding whether/what to build. Release may prepare independently once sufficient project truth/evidence exists.
+Market research may run before implementation when the user is deciding whether/what to build. APC is an optional downstream compiler, not a CoreReplica prerequisite: it consumes the qualified reference corpus and user intent; unresolved reference questions route back to CoreReplica rather than being invented during compilation. Release may prepare independently once sufficient project truth/evidence exists.
 
 ## Core-First binding
 

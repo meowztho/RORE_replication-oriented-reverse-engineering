@@ -25,7 +25,7 @@ Generate enough candidates to compare distinct naming directions, then reject ca
 
 ## Voice and assets
 
-Define a small voice contract with positive/negative examples and rewrite high-visibility target strings freshly. Logo/icon/illustration direction must be independently created/licensed and materially distinguishable from the reference. Preserve usable small-size/icon constraints where relevant.
+Define a small voice contract with positive/negative examples and rewrite high-visibility target strings freshly. For an independent target, default logo/icon/illustration direction to independently created or appropriately licensed material and distinguish it from the reference where that is part of Product Truth. Reuse of existing identity/content requires the canonical source/use/distribution basis for the intended use. Preserve usable small-size/icon constraints where relevant.
 
 ## Residue sweep
 

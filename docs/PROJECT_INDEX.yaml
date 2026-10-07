@@ -22,3 +22,9 @@ skills:
   verify: skills/corereplica-verify/SKILL.md
   market: skills/corereplica-market/SKILL.md
   release: skills/corereplica-release/SKILL.md
+reference_procedures:
+  reverse_engineering: skills/corereplica-reference/references/REVERSE_ENGINEERING_WORKFLOW.md
+  runtime_corroboration: skills/corereplica-reference/references/RUNTIME_CORROBORATION.md
+  evidence_qualification: skills/corereplica-reference/references/EVIDENCE_QUALIFICATION.md
+  adversarial_limit_probing: skills/corereplica-reference/references/ADVERSARIAL_LIMIT_PROBING.md
+  external_research_and_corroboration: skills/corereplica-reference/references/EXTERNAL_RESEARCH_AND_CORROBORATION.md

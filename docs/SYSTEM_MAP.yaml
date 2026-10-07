@@ -1,35 +1,48 @@
 version: 1
 systems:
-  - id: CR_ORCHESTRATION
-    responsibility: Route CoreReplica work by material trigger, context freshness, and exact gates.
-    canonical_owner: skills/corereplica-orchestration/SKILL.md
-    excludes:
-      - project product truth
-      - architecture ownership decisions
-      - verification conclusions
-  - id: CR_REFERENCE
-    responsibility: Record allowed reference-product observations with sources, evidence, and uncertainty.
-    canonical_owner: skills/corereplica-reference/SKILL.md
-  - id: CR_PRODUCT
-    responsibility: Define the independent target product and reference-trait decisions.
-    canonical_owner: skills/corereplica-product/SKILL.md
-  - id: CR_DESIGN
-    responsibility: Define design-system semantics and translate visual reference evidence into independent design contracts.
-    canonical_owner: skills/corereplica-design/SKILL.md
-  - id: CR_BUILD
-    responsibility: Implement authorized target requirements through canonical repository owners and record non-authoritative progress.
-    canonical_owner: skills/corereplica-build/SKILL.md
-  - id: CR_VERIFY
-    responsibility: Plan and execute read-only verification, collect evidence, report failures, and compute evidence-based parity.
-    canonical_owner: skills/corereplica-verify/SKILL.md
-  - id: CR_MARKET
-    responsibility: Analyse sourced market feedback, define positioning/brand profile, and prepare launch content.
-    canonical_owner: skills/corereplica-market/SKILL.md
-  - id: CR_RELEASE
-    responsibility: Evaluate release prerequisites, perform reversible release preparation, and preserve the exact consequential transition gate.
-    canonical_owner: skills/corereplica-release/SKILL.md
+- id: CR_ORCHESTRATION
+  responsibility: Route CoreReplica work by material trigger, context freshness, and
+    exact gates.
+  canonical_owner: skills/corereplica-orchestration/SKILL.md
+  excludes:
+  - project product truth
+  - architecture ownership decisions
+  - verification conclusions
+- id: CR_REFERENCE
+  responsibility: Reverse-engineer authorized reference targets, corroborate runtime-sensitive
+    claims at the effective running boundary when material, and own qualified Evidence,
+    Findings, Paths and the synthesized Reference Model.
+  canonical_owner: skills/corereplica-reference/SKILL.md
+- id: CR_PRODUCT
+  responsibility: Define the independent target product and reference-trait decisions.
+  canonical_owner: skills/corereplica-product/SKILL.md
+- id: CR_DESIGN
+  responsibility: Define design-system semantics and translate visual reference evidence
+    into independent design contracts.
+  canonical_owner: skills/corereplica-design/SKILL.md
+- id: CR_BUILD
+  responsibility: Implement authorized target requirements through canonical project/workspace
+    owners and record non-authoritative progress.
+  canonical_owner: skills/corereplica-build/SKILL.md
+- id: CR_VERIFY
+  responsibility: Plan and execute read-only verification, collect evidence, report
+    failures, and compute evidence-based parity.
+  canonical_owner: skills/corereplica-verify/SKILL.md
+- id: CR_MARKET
+  responsibility: Analyse sourced market feedback, define positioning/brand profile,
+    and prepare launch content.
+  canonical_owner: skills/corereplica-market/SKILL.md
+- id: CR_RELEASE
+  responsibility: Evaluate release prerequisites, perform reversible release preparation,
+    and preserve the exact consequential transition gate.
+  canonical_owner: skills/corereplica-release/SKILL.md
 external_procedural_owners:
-  core_first_extension_architecture: architecture/ownership/reuse/change classification when available
-  observable_product_verification: real user/external runtime outcome verification when available
+  core_first_extension_architecture: architecture/ownership/reuse/change classification
+    when available
+  observable_product_verification: real user/external runtime outcome verification
+    when available
   core_first_verifier: fresh architecture conformance review when materially triggered
-  independent_review: anti-anchored consequential/high-risk review when materially triggered
+  independent_review: anti-anchored consequential/high-risk review when materially
+    triggered
+  agent_project_compiler: optional downstream compiler of durable target project authorities
+    from user intent plus the CoreReplica reference corpus
