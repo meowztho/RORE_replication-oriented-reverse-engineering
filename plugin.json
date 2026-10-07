@@ -1,26 +1,26 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "corereplica",
-  "version": "0.3.3",
-  "description": "Core-First reference reverse engineering with evidence-qualified extraction, targeted runtime corroboration, external research, adversarial probing, optional replication, and guarded release.",
+  "version": "0.4.2",
+  "description": "RORE: domain-neutral replication-oriented reverse engineering that reconstructs authorized systems into evidence-grounded Reference Truth without compiling or building a target product.",
   "author": {
-    "name": "CoreReplica contributors"
+    "name": "RORE contributors"
   },
   "extensions": {
     "com.openai": {
       "interface": {
-        "displayName": "CoreReplica",
-        "shortDescription": "Reverse-engineer references",
-        "longDescription": "Reverse-engineer and reconstruct authorized reference software, websites, games, artifacts, data and systems using extraction, static/dynamic analysis, targeted runtime corroboration, public-source research/corroboration and controlled adversarial probing to recover qualified evidence, findings, causal paths and usable reference models; optionally define and build an independent replica through canonical owners, with APC as an optional downstream project compiler.",
-        "developerName": "CoreReplica contributors",
+        "displayName": "RORE",
+        "shortDescription": "Deep reference reconstruction",
+        "longDescription": "Domain-neutral Replication-Oriented Reverse Engineering for authorized digital systems. RORE routes by unresolved knowledge, evidence boundary and required capability rather than by product domain, combining surface, artifact, static, runtime, memory, data, protocol, external-research and controlled perturbation methods as material. It reconstructs the reference's own behavior, structure, state, data and causal paths while preserving evidence boundaries, contradictions and unknowns, and stops before target-product design, implementation, verification or release.",
+        "developerName": "RORE contributors",
         "category": "Developer Tools",
         "capabilities": [
           "Interactive"
         ],
         "defaultPrompt": [
-          "Reverse-engineer this authorized reference target and recover as much useful technical knowledge as practical.",
-          "Continue this CoreReplica reference reconstruction using the smallest relevant JIT procedure.",
-          "Use this CoreReplica reference corpus to define or verify an independent replica without confusing reference evidence with product truth."
+          "Reverse-engineer this authorized reference target as deeply as useful and preserve its own logic, state and structure as evidence-grounded Reference Truth.",
+          "Continue this RORE investigation using the smallest high-information analysis method for the current knowledge gap.",
+          "Review this RORE evidence graph and identify unsupported claims, contradictions, missing coverage and the next highest-information probes."
         ]
       }
     }

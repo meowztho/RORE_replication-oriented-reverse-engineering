@@ -1,7 +1,7 @@
 # Third-party notices
 
-Portions of this project are derived from `Jakeschincariol/replica-skill`, copyright (c) 2026 Jake Schincariol, under the MIT License. The upstream MIT license is reproduced in `LICENSE-UPSTREAM`.
+RORE evolves from CoreReplica and incorporates/adapts selected methodology and historical helper-code lineage from `Jakeschincariol/replica-skill`, copyright (c) 2026 Jake Schincariol, under the MIT License reproduced in `LICENSE-UPSTREAM`.
 
-CoreReplica v0.3.1 also adapts selected methodology concepts from `zhaoxuya520/reverse-skill`, copyright (c) 2026 zhaoxuya520, under the MIT License. Its license is reproduced in `LICENSE-REVERSE-SKILL`. No reverse-skill payload/exploit-chain implementation is bundled; selected domain-neutral adversarial analysis concepts are rewritten for reference understanding.
+RORE also adapts selected reverse-engineering methodology from `zhaoxuya520/reverse-skill`, copyright (c) 2026 zhaoxuya520, under the MIT License reproduced in `LICENSE-REVERSE-SKILL`.
 
-CoreReplica changes are distributed under the MIT License in `LICENSE`.
+RORE v0.4.0 uses these sources for reverse-engineering methodology only; downstream clone/product ownership and offensive attack-chain goals are not part of RORE. See `SOURCE_PROVENANCE.md` for the detailed admission boundary.

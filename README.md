@@ -1,117 +1,120 @@
-# CoreReplica
+# RORE — Replication-Oriented Reverse Engineering
 
-CoreReplica is a skills-only Agent Plugin for **reverse-engineering and reconstructing authorized reference targets** and, when requested, using that knowledge to build an independent replica without collapsing Reference Truth into Product Truth.
+RORE is a provider-neutral Agent Plugin for **deep reconstruction of authorized reference systems**. Its purpose is to recover how a reference actually behaves and is structured — not to decide what a new product should be, not to redesign the reference for a builder, and not to implement or release a replica.
 
-Its primary job is to discover **how a piece of software, website, game, data format, service, package, workflow or system actually works**: inventory the target, extract/decompress/decode/decompile useful material, observe runtime behavior, connect static and dynamic evidence, recover structures/algorithms/dataflows, and turn the result into a usable reference corpus.
+The word *replication-oriented* describes the required depth: RORE should recover enough reference truth that a later human, agent, compiler or project process could make informed decisions without RORE prematurely translating the original into a different architecture.
 
-CoreReplica treats runtime as a claim-sensitive evidence boundary: static/package evidence may fully prove static claims, but effective loading, live state, exercised content, persistence, generated values and other runtime-sensitive claims require representative runtime corroboration when practical before they are called runtime-verified or complete.
+The current package keeps that boundary unchanged. It covers evidence freshness, reviewer independence, justified descent to lower-level binary/memory facts, source trust and API projection across distinct system layers.
 
-CoreReplica may also use version-aware public research as a discovery/corroboration lane when it can resolve unknown formats, mechanisms, versions or source locations. External sources guide and challenge the local model; they do not silently replace target-local evidence for target-specific claims.
-
-CoreReplica is not the project compiler. When Agent Project Compiler (APC) is selected, CoreReplica supplies the qualified reference corpus and APC compiles that material plus user intent into durable Product/Realization/Acceptance/Plan authorities. CoreReplica remains usable without APC through minimal fallback target-scope artifacts.
-
-It incorporates useful ideas from the MIT-licensed `Jakeschincariol/replica-skill` and, from v0.3.0+, selected analysis-method ideas from the MIT-licensed `zhaoxuya520/reverse-skill`, while retaining Core-First owner/routing boundaries.
-
-## Core model
+## Boundary
 
 ```text
-authorized target
-→ survey / inventory
-→ extract / unpack / decode / decompile when useful
-→ static analysis + targeted runtime corroboration when material
-→ qualified Evidence
+REFERENCE TARGET
+→ observe / acquire / inventory
+→ extract / decode / decompile / inspect
+→ dynamic + runtime + memory analysis when useful
+→ controlled perturbation to expose hidden causality
+→ qualify Evidence
 → Findings
-→ causal/call/data/runtime Paths
-→ Reference Model / usable corpus
-
-Reference Truth
-!= Product Truth
-!= Implementation State
-!= Verification Truth
-!= Release Approval
+→ Paths
+→ reference-native Models
+→ coverage / contradictions / unknowns
+= REFERENCE TRUTH
+STOP RORE
 ```
 
-Within Reference Truth:
+RORE does **not** own target requirements, target architecture, product planning, implementation, replica acceptance, branding, launch or release. It has no APC dependency and does not compile a downstream project package.
 
-```text
-source acquired
-!= correct object identified
-!= correctly interpreted
-!= complete population
-!= independently corroborated claim
-```
-
-## CoreReplica ↔ APC boundary
-
-```text
-CoreReplica
-  recover / qualify / connect reference knowledge
-  ↓
-Evidence + Findings + Paths + Reference Model
-  ↓
-APC (when selected)
-  compile durable project authorities from user intent + reference corpus
-  ↓
-Product / Realization / System / Plan / Acceptance package
-```
-
-APC does not own reverse engineering or source extraction. CoreReplica does not create an APC-style project package merely because the reference analysis becomes rich.
-
-## Skills
+## Active skills
 
 | Skill | Responsibility |
 | --- | --- |
-| `corereplica-orchestration` | JIT routing, truth/freshness/evidence/gate discipline, CoreReplica↔APC boundary |
-| `corereplica-reference` | Reverse engineering, extraction, static/dynamic analysis, evidence qualification, Findings/Paths/Reference Model |
-| `corereplica-product` | Minimal replica-target decisions when no stronger project Product Truth owner already exists |
-| `corereplica-design` | Design-system semantics and visual reference translation |
-| `corereplica-build` | Direct replica implementation through existing canonical project/workspace owners; progress only |
-| `corereplica-verify` | Read-only target runtime/flow/parity verification and evidence |
-| `corereplica-market` | Review research, differentiation, brand profile, launch material |
-| `corereplica-release` | Release preparation and exact publish/go-live gate |
+| `rore-orchestration` | Choose the next analysis method from target/surface, current knowledge gap, required evidence boundary and available capabilities. |
+| `rore-reconstruction` | Acquire, interpret and connect evidence into Findings, Paths and reference-native models while preserving the original system's structure and uncertainty. |
+| `rore-evidence-review` | Read-only audit of evidence sufficiency, fixity, traceability, contradictions, coverage and claim overreach. |
 
-There is **no mandatory linear sequence**. Reverse-engineering depth is progressive and target-dependent; the router loads only material procedures.
+These are canonical responsibilities, not a mandatory three-stage pipeline. Narrow work may use only reconstruction; evidence review is triggered when a claim, handoff, broad completeness statement or high-consequence interpretation needs an independent check.
 
-## Reference corpus
-
-For a substantial reference investigation, the fallback control-plane corpus may contain:
+## Core evidence model
 
 ```text
-corereplica/reference/
-  SOURCE_LOG.md
-  INVENTORY.md
-  HYPOTHESES.md
-  FEATURE_OBSERVATIONS.csv
-  EVIDENCE/            raw/qualified observation records or precise refs
-  FINDINGS.md          supported interpretations / recovered behavior
-  PATHS.md             call/data/runtime/user-flow relationships
-  REFERENCE_MODEL.md   synthesized usable model
-  DERIVED/             reproducible parsed/converted views
-  scratch/             local-only intermediates when needed
+Evidence = directly observed/acquired fact or bounded derived artifact
+Finding  = evidence-backed interpretation
+Path     = grounded relationship/flow/cause connecting evidence/findings
+Model    = a reference-native synthesis: surface, state, component, data,
+           protocol, causal, asset, mechanics, architecture, etc.
 ```
 
-Do not create every artifact for a small visual study. Use them only when the investigation benefits from them.
+RORE preserves several distinctions:
 
-## Reverse-engineering depth
-
-`corereplica-reference` JIT-loads `REVERSE_ENGINEERING_WORKFLOW.md` when the target requires extraction, decompilation, static/dynamic analysis, browser/runtime observation, protocol/data-format recovery, or system reconstruction. It loads `RUNTIME_CORROBORATION.md` when a material claim depends on effective running behavior or broad reconstruction would otherwise overstate runtime coverage. It loads `ADVERSARIAL_LIMIT_PROBING.md` when hidden contracts are best exposed through boundary, sequence, replay, timing/concurrency, parser/layer or failure/recovery perturbations. It loads `EXTERNAL_RESEARCH_AND_CORROBORATION.md` when public documentation/source/history/research can resolve an unknown or reveal a new local evidence path. It JIT-loads `EVIDENCE_QUALIFICATION.md` when identity, parser correctness, coverage, source layering or corroboration are material.
-
-The aim is **maximum useful recoverable knowledge within the authorized scope**, not the minimum observation needed to close one claim. For broad reconstruction, CoreReplica also challenges coverage across user flows, functional rules, architecture/ownership, data/content, algorithms, packages/assets, runtime/persistence, integrations/protocols, visual/media semantics, version/layering, install/update/portability, timing/resource behavior and failure/trust boundaries where material.
-
-Before direct replica product decisions, CoreReplica preserves a compact reference-trait handoff (`trait → evidence/findings/paths → confidence/runtime status → limitations/constraints`) so earlier Reference→Product semantics are not lost as the RE corpus becomes richer. Start with cheap breadth, then deepen high-value unresolved areas until the requested coverage is reached, the next step is blocked, or additional work has sharply diminishing information value.
-
-## Deterministic helpers
-
-CoreReplica retains/adapts six standard-library helpers from the original Replica project: `contrast.py`, `imgdiff.py`, evidence-based `parity.py`, `reviews.py`, `sweep.py`, and `listing.py`. These produce narrow evidence only; they are not architecture or completion owners.
-
-## Validate
-
-```bash
-python3 scripts/validate_project.py
+```text
+parseable output != correct object identity
+correct subset != population completeness
+two tools agree != independent corroboration
+present != referenced != reachable != exercised != effective
+model-generated annotation != grounded Reference Truth
 ```
 
-The gate validates package/governance invariants, representative known-bad mutants, and the regression suite.
+For broad investigations, material coverage is explicit: `covered | partial | unresolved | not_applicable | out_of_scope`.
 
-## Provenance and license
+## Reconstruction methods
 
-See `SOURCE_PROVENANCE.md`, `THIRD_PARTY_NOTICES.md`, `LICENSE-UPSTREAM`, and `LICENSE-REVERSE-SKILL`. CoreReplica itself is MIT licensed.
+`rore-reconstruction` JIT-loads only the methods that fit the current gap:
+
+- surface / flow / state reconstruction;
+- visual / interaction measurement;
+- artifact extraction and nested container recovery;
+- static code / binary reconstruction;
+- runtime / dynamic observation;
+- memory / state / reader-writer causality;
+- web / JavaScript / API reconstruction;
+- protocol reconstruction;
+- data / schema / format reconstruction;
+- mobile/platform reconstruction;
+- conditional engine / asset / runtime profiling when those semantics exist;
+- cross-version / differential reconstruction;
+- mechanics / rules / balancing reconstruction;
+- external/version/review research;
+- controlled perturbation and causal probing.
+
+A named tool is a **provider**, not an owner. RORE first identifies the required analysis capability, then discovers an available provider or uses the smallest auditable helper that can supply it.
+
+## Perturbation as an epistemic instrument
+
+RORE may deliberately vary inputs, state, memory, DOM/client state, files/configuration, timing, sequence or other authorized boundaries when normal observation cannot reveal the mechanism. The purpose is causal understanding, not exploit maximization.
+
+```text
+baseline
+→ hypothesis
+→ vary one material dimension
+→ observe differential
+→ trace cause
+→ corroborate against stable anchors
+→ restore / record residue
+→ Evidence + Finding + Path
+```
+
+Stop when the mechanism is sufficiently understood for the requested reconstruction scope.
+
+## Reference identities
+
+Use stable IDs where the target contains the corresponding class, for example:
+
+```text
+SUR-###    surface/screen/view
+FLOW-###   user/system flow
+STATE-###  material state
+COMP-###   component/subsystem
+ENT-###    data/domain entity
+PROTO-###  protocol/message identity
+E-###      evidence
+FIND-###   finding
+PATH-###   user/call/data/runtime/causal path
+PROBE-###  reproducible probe
+```
+
+Do not force unused classes onto a target. Stable IDs exist to preserve relationships across evidence and versions, not to impose a foreign architecture.
+
+## Provenance
+
+RORE evolves from CoreReplica and retains methodology provenance from the MIT-licensed `Jakeschincariol/replica-skill` and `zhaoxuya520/reverse-skill`. v0.4.0 re-reviewed the user-supplied source snapshots and deliberately admitted reverse-engineering methods while removing downstream clone/product ownership. See `SOURCE_PROVENANCE.md`.

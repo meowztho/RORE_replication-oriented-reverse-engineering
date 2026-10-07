@@ -1,0 +1,16 @@
+version: 1
+routes:
+  vision: docs/USER_VISION.md
+  decisions: docs/DECISION_COMPENDIUM.md
+  systems: docs/SYSTEM_MAP.yaml
+  capabilities: docs/CAPABILITY_GRAPH.yaml
+  integration: docs/SYSTEM_INTEGRATION.yaml
+  guardrails: docs/ARCHITECTURE_GUARDRAILS.yaml
+  acceptance: docs/ACCEPTANCE.yaml
+  handoff: docs/CONTEXT_HANDOFF.md
+  provenance: SOURCE_PROVENANCE.md
+  validator: scripts/validate_project.py
+skills:
+  orchestration: skills/rore-orchestration/SKILL.md
+  reconstruction: skills/rore-reconstruction/SKILL.md
+  evidence_review: skills/rore-evidence-review/SKILL.md

@@ -1,0 +1,38 @@
+version: 1
+acceptance:
+- id: RORE-A001
+  requirement: Active skills contain no target-product, APC/project-compiler, implementation, branding, launch or release ownership.
+- id: RORE-A002
+  requirement: Broad reference reconstruction can represent surface/flow/state, static/artifact, runtime, memory/causality, data/schema, interface/API/protocol, resources/assets, visual/media, rules/calculations, versioning, timing and failure semantics when material.
+- id: RORE-A003
+  requirement: Reconstruction preserves Evidence, Finding, Path and reference-native Model as distinct semantic layers.
+- id: RORE-A004
+  requirement: Evidence qualification explicitly covers object identity, parser/interpretation correctness, source precedence, coverage/completeness and corroboration independence.
+- id: RORE-A005
+  requirement: Runtime-sensitive claims distinguish present, referenced, reachable, exercised and effective behavior.
+- id: RORE-A006
+  requirement: Controlled perturbation is available as a reconstruction method with baseline, one-variable differential, causal trace, recovery/residue recording and a stop condition of sufficient understanding.
+- id: RORE-A007
+  requirement: Analysis decision quality preserves hypotheses, negative evidence, deadlock replanning, stage/tool bias detection and context-pollution recovery.
+- id: RORE-A008
+  requirement: Stable reference identities and target/artifact fixity are available without imposing unused entity classes.
+- id: RORE-A009
+  requirement: Cross-version reconstruction uses semantic anchors and does not promote raw offsets into durable truth.
+- id: RORE-A010
+  requirement: Evidence Review is read-only and can detect ungrounded claims, stale/missing hashes, contradictions, overclaimed coverage and unsupported promotion.
+- id: RORE-A011
+  requirement: Tool/provider choice is capability-first and no named reverse-engineering suite is a required owner.
+- id: RORE-A012
+  requirement: Source provenance retains attribution to admitted upstream methodology and records the v0.4.0 source-snapshot re-audit.
+- id: RORE-A013
+  requirement: RORE remains domain-neutral; no product category is declared a primary target or canonical owner, and domain-specific files act only as conditional JIT profiles beneath the same reconstruction workflow.
+- id: RORE-A014
+  requirement: Current-state claims establish observation-path liveness when live/changing state is material and there is concrete stale/frozen/cached/replayed/disconnected-path risk; identical samples alone do not prove a dead observation path.
+- id: RORE-A015
+  requirement: Evidence Review uses a fresh reviewer context where feasible and independently derives its verdict without reconstruction-agent confidence, persuasive rationale or prior review conclusions anchoring the review.
+- id: RORE-A016
+  requirement: Static/binary reconstruction may descend from semantic source/decompiler views through bytecode/assembly, raw bytes/hex and live memory only when lower-level facts materially discriminate unresolved hypotheses, then reconnects them to stable semantic anchors.
+- id: RORE-A017
+  requirement: Target/source/tool content is treated as evidence rather than instructions; embedded agent-directed commands cannot redirect RORE scope, method, permissions or claims.
+- id: RORE-A018
+  requirement: Web/API reconstruction binds schemas and requests to their actual endpoint/version/environment and traces projections across internal, frontend and public layers before transferring field-level claims.
